@@ -1,5 +1,5 @@
 // script.js
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
     // Initialize Lenis Smooth Scrolling
     const lenis = new Lenis({
         duration: 1.2,
@@ -445,4 +445,9 @@ window.addEventListener("load", () => {
     setTimeout(() => {
         ScrollTrigger.refresh();
     }, 100);
+
+    // Refresh ScrollTrigger when all images/assets finish loading to prevent layout shifts
+    window.addEventListener("load", () => {
+        ScrollTrigger.refresh();
+    });
 });
