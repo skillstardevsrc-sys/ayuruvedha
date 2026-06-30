@@ -1,0 +1,176 @@
+/* style.css */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #09120F;
+    color: #FAF7F2;
+    overflow-x: hidden;
+    cursor: none; /* Hide default cursor for custom cursor */
+}
+
+/* Glassmorphism Classes */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-btn {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #09120F;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1F4D3A;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7AC943;
+}
+
+/* Hide scrollbar utility */
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Horizontal bounce for swipe indicator */
+@keyframes bounce-x {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(25%); }
+}
+.animate-bounce-x {
+    animation: bounce-x 1s infinite;
+}
+
+/* Lenis smooth scroll */
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+/* Utility to ensure text remains readable over images */
+.text-shadow-sm {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-md {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.5;
+}
+
+/* Swiper Overrides */
+.swiper-pagination-bullet {
+    background: #FAF7F2;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    background: #F5B642;
+    opacity: 1;
+}
+
+/* --- Custom Cursor --- */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #F5B642;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(245, 182, 66, 0.5);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+}
+
+.cursor-outline.hover {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(245, 182, 66, 0.1);
+    border-color: rgba(122, 201, 67, 0.8);
+}
+
+/* Ensure links and buttons have no cursor since we are hiding it */
+a, button, input, select, textarea {
+    cursor: none;
+}
+
+/* --- Fireflies Animation --- */
+.firefly {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: #F5B642;
+    border-radius: 50%;
+    box-shadow: 0 0 6px 2px rgba(245, 182, 66, 0.6);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 15;
+    animation: float-firefly infinite ease-in-out;
+}
+
+@keyframes float-firefly {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+}
+
+/* Swiper Customization */
+.swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+    background-color: #7AC943 !important;
+}
